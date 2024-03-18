@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>{{room.name}}</h1>
+<h1>SDETAILS</h1>
+<h3> Available Servers: </h3>
+
+<div>{% for sdet in sdets %}
+
+    <ul>
+        <li>{{sdet.sid}} -- <a href= "{% url 'sdet' sdet.sid %}">{{sdet.sn}}</a></li>
+    </ul>
+{% endfor %}
+
+    </div>
+
+
+{% endblock %}
