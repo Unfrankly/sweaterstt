@@ -37,4 +37,6 @@ class Sdet(models.Model):
     description = models.TextField(null=True, blank=True)
     location = models.TextField(null=True)
     
+    def __str__(self):
+        return self.name
     

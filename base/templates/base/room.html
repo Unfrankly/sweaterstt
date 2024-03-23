@@ -8,7 +8,7 @@
 <div>{% for sdet in sdets %}
 
     <ul>
-        <li>{{sdet.sid}} -- <a href= "{% url 'sdet' sdet.sid %}">{{sdet.sn}}</a></li>
+        <li>{{sdet.id}} -- <a href= "{% url 'sdet' sdet.id %}">{{sdet.name}}</a></li>
     </ul>
 {% endfor %}
 

@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-from .models import Room
+from .models import Room, Sdet
 
 # rooms = [
 #     {'id': 1, 'name': "Sweat in Chagauans"},
@@ -16,15 +16,16 @@ upids = [
     {'id': 3, 'name': "user"},
 ]
 
-sdets = [
-    {'sid': 1, 'sn': 'NA'},
-    {'sid': 2, 'sn': 'SA'},
-    {'sid': 3, 'sn': 'EU'},
-]
+# sdets = [
+#     {'sid': 1, 'sn': 'NA'},
+#     {'sid': 2, 'sn': 'SA'},
+#     {'sid': 3, 'sn': 'EU'},
+# ]
 
 
 def home(request):
     rooms = Room.objects.all()
+    sdets = Sdet.objects.all()
     context = {'rooms': rooms,
                'upids': upids,
                'sdets': sdets, }
@@ -33,6 +34,7 @@ def home(request):
 
 def room(request, pk):
     room = Room.objects.get(id=pk)
+    sdets = Sdet.objects.all()
     # for i in rooms:
     #     if i['id'] == int(pk):
     #         room = i
@@ -53,9 +55,7 @@ def upid(request, pk):
 
 
 def sdet(request, pk):
-    sdet = None
-    for i in sdets:
-        if i['sid'] == int(pk):
-            sdet = i
-        context = {'sdet': sdet}
+    sdet = Sdet.objects.get(id=pk)
+    
+    context = {'sdet': sdet}
     return render(request, 'base/sdet.html', context)

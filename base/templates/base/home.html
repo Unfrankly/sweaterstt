@@ -13,7 +13,7 @@
     <div>
         <div>
             {% for sdet in sdets %}
-            <h3>{{sdet.sid}} -- <a href="/sdet/{{sdet.sid}}">{{sdet.sn}}</a></h3>
+            <h3>{{sdet.id}} -- <a href="{% url 'sdet' sdet.id %}">{{sdet.name}}</a></h3>
             {% endfor %}
         {% for room in rooms%}
         <span>@{{room.host.username}}</span>
